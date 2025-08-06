@@ -9,25 +9,75 @@ const perguntas = [
         enunciado: "",
         alternativas: [
             {
-                texto:"",
-                afirmação: ""
+                texto: "",
+                afirmacao: ""
             },
             {
                 texto: "",
-                afirmação: ""
+                afirmacao: ""
             }
         ]
     },
     {
-        enunciado: "repete o padrao superior para todas perguntas",
-    }
-]
+        enunciado: "",
+        alternativas: [
+            {
+                texto: "",
+                afirmacao: ""
+            },
+            {
+                texto: "",
+                afirmacao: ""
+            }
+        ]
+    },
+    {
+        enunciado: "",
+        alternativas: [
+            {
+                texto: "",
+                afirmacao: ""
+            },
+            {
+                texto: "",
+                afirmacao: ""
+            }
+        ]
+    },
+    {
+        enunciado: "",
+        alternativas: [
+            {
+                texto: "",
+                afirmacao: ""
+            },
+            {
+                texto: "",
+                afirmacao: ""
+            }
+        ]
+    },
+    {
+        enunciado: "",
+        alternativas: [
+            {
+                texto: "",
+                afirmacao: ""
+            },
+            {
+                texto: "",
+                afirmacao: ""
+            }
+        ]
+    },
+];
+
 
 let atual = 0;
 let perguntaAtual;
-let histriaFinal =  "";
+let historiaFinal = "";
 
-function mostraPergunta () {
+function mostraPergunta() {
     if (atual >= perguntas.length) {
         mostraResultado();
         return;
@@ -38,25 +88,25 @@ function mostraPergunta () {
     mostraAlternativas();
 }
 
-function mostraAlternativas () {
-    for (const alternativa of perguntaAtual.alternativas) {
-        const botaoAlternativa = document.createElement("button");
+function mostraAlternativas(){
+    for(const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener('click', () => respostaSelecionada(alternativa));
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
 
 function respostaSelecionada(opcaoSelecionada) {
     const afirmacoes = opcaoSelecionada.afirmacao;
-    histriaFinal += afirmacoes + "";
+    historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
 }
 
-function mostraResultado () {
-    caixaPerguntas.textContent = "Em 2026...";
-    textoResultado.textContent = histriaFinal;
+function mostraResultado() {
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
 }
 
